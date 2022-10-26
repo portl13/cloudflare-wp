@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       CloudFlare Stream WP
  * Description:       This is the alpha version of the CloudFlare Stream Wordpress plugin
- * Version:           0.0.1
+ * Version:           1.0.0
  * Requires at least: 6.0
  * Requires PHP:      7.2
  * Author:            PORTL
