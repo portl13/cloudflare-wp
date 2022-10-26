@@ -1,0 +1,873 @@
+Array
+(
+    [headers] => Requests_Utility_CaseInsensitiveDictionary Object
+        (
+            [data:protected] => Array
+                (
+                    [date] => Mon, 03 Oct 2022 20:41:49 GMT
+                    [content-type] => application/json; charset=UTF-8
+                    [cf-ray] => 754880322ea15f94-SMF
+                    [content-encoding] => gzip
+                    [set-cookie] => Array
+                        (
+                            [0] => __cflb=0H28vgHxwvgAQtjUGU4vq74ZFe3sNVUZTrRBa3d1bbB; SameSite=Lax; path=/; expires=Mon, 03-Oct-22 23:11:50 GMT; HttpOnly
+                            [1] => __cfruid=8bcf31ffe99df4032dbbc18453ce1d0677e1b11a-1664829709; path=/; domain=.api.cloudflare.com; HttpOnly; Secure; SameSite=None
+                        )
+
+                    [vary] => Accept-Encoding
+                    [cf-cache-status] => DYNAMIC
+                    [x-envoy-upstream-service-time] => 7
+                    [server] => cloudflare
+                )
+
+        )
+
+    [body] => {
+  "result": null,
+  "success": false,
+  "errors": [
+    {
+      "code": 10005,
+      "message": "Bad Request"
+    }
+  ],
+  "messages": [
+    {
+      "code": 10005,
+      "message": "Failed to decode body"
+    }
+  ]
+}
+
+    [response] => Array
+        (
+            [code] => 400
+            [message] => Bad Request
+        )
+
+    [cookies] => Array
+        (
+            [0] => WP_Http_Cookie Object
+                (
+                    [name] => __cflb
+                    [value] => 0H28vgHxwvgAQtjUGU4vq74ZFe3sNVUZTrRBa3d1bbB
+                    [expires] => 1664838710
+                    [path] => /
+                    [domain] => api.cloudflare.com
+                    [port] => 
+                    [host_only] => 1
+                )
+
+            [1] => WP_Http_Cookie Object
+                (
+                    [name] => __cfruid
+                    [value] => 8bcf31ffe99df4032dbbc18453ce1d0677e1b11a-1664829709
+                    [expires] => 
+                    [path] => /
+                    [domain] => api.cloudflare.com
+                    [port] => 
+                    [host_only] => 
+                )
+
+        )
+
+    [filename] => 
+    [http_response] => WP_HTTP_Requests_Response Object
+        (
+            [response:protected] => Requests_Response Object
+                (
+                    [body] => {
+  "result": null,
+  "success": false,
+  "errors": [
+    {
+      "code": 10005,
+      "message": "Bad Request"
+    }
+  ],
+  "messages": [
+    {
+      "code": 10005,
+      "message": "Failed to decode body"
+    }
+  ]
+}
+
+                    [raw] => HTTP/1.1 400 Bad Request
+Date: Mon, 03 Oct 2022 20:41:49 GMT
+Content-Type: application/json; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+CF-Ray: 754880322ea15f94-SMF
+Content-Encoding: gzip
+Set-Cookie: __cflb=0H28vgHxwvgAQtjUGU4vq74ZFe3sNVUZTrRBa3d1bbB; SameSite=Lax; path=/; expires=Mon, 03-Oct-22 23:11:50 GMT; HttpOnly
+Vary: Accept-Encoding
+CF-Cache-Status: DYNAMIC
+x-envoy-upstream-service-time: 7
+Set-Cookie: __cfruid=8bcf31ffe99df4032dbbc18453ce1d0677e1b11a-1664829709; path=/; domain=.api.cloudflare.com; HttpOnly; Secure; SameSite=None
+Server: cloudflare
+
+{
+  "result": null,
+  "success": false,
+  "errors": [
+    {
+      "code": 10005,
+      "message": "Bad Request"
+    }
+  ],
+  "messages": [
+    {
+      "code": 10005,
+      "message": "Failed to decode body"
+    }
+  ]
+}
+
+                    [headers] => Requests_Response_Headers Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Array
+                                        (
+                                            [0] => Mon, 03 Oct 2022 20:41:49 GMT
+                                        )
+
+                                    [content-type] => Array
+                                        (
+                                            [0] => application/json; charset=UTF-8
+                                        )
+
+                                    [cf-ray] => Array
+                                        (
+                                            [0] => 754880322ea15f94-SMF
+                                        )
+
+                                    [content-encoding] => Array
+                                        (
+                                            [0] => gzip
+                                        )
+
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => __cflb=0H28vgHxwvgAQtjUGU4vq74ZFe3sNVUZTrRBa3d1bbB; SameSite=Lax; path=/; expires=Mon, 03-Oct-22 23:11:50 GMT; HttpOnly
+                                            [1] => __cfruid=8bcf31ffe99df4032dbbc18453ce1d0677e1b11a-1664829709; path=/; domain=.api.cloudflare.com; HttpOnly; Secure; SameSite=None
+                                        )
+
+                                    [vary] => Array
+                                        (
+                                            [0] => Accept-Encoding
+                                        )
+
+                                    [cf-cache-status] => Array
+                                        (
+                                            [0] => DYNAMIC
+                                        )
+
+                                    [x-envoy-upstream-service-time] => Array
+                                        (
+                                            [0] => 7
+                                        )
+
+                                    [server] => Array
+                                        (
+                                            [0] => cloudflare
+                                        )
+
+                                )
+
+                        )
+
+                    [status_code] => 400
+                    [protocol_version] => 1.1
+                    [success] => 
+                    [redirects] => 0
+                    [url] => https://api.cloudflare.com/client/v4/accounts/5c63240b3aa78582ec4d26feb05a28d7/stream/live_inputs/af7b97afd30365707132be46e3ecb81a
+                    [history] => Array
+                        (
+                        )
+
+                    [cookies] => Requests_Cookie_Jar Object
+                        (
+                            [cookies:protected] => Array
+                                (
+                                    [__cflb] => Requests_Cookie Object
+                                        (
+                                            [name] => __cflb
+                                            [value] => 0H28vgHxwvgAQtjUGU4vq74ZFe3sNVUZTrRBa3d1bbB
+                                            [attributes] => Requests_Utility_CaseInsensitiveDictionary Object
+                                                (
+                                                    [data:protected] => Array
+                                                        (
+                                                            [samesite] => Lax
+                                                            [path] => /
+                                                            [expires] => 1664838710
+                                                            [httponly] => 1
+                                                            [domain] => api.cloudflare.com
+                                                        )
+
+                                                )
+
+                                            [flags] => Array
+                                                (
+                                                    [creation] => 1664829709
+                                                    [last-access] => 1664829709
+                                                    [persistent] => 
+                                                    [host-only] => 1
+                                                )
+
+                                            [reference_time] => 1664829709
+                                        )
+
+                                    [__cfruid] => Requests_Cookie Object
+                                        (
+                                            [name] => __cfruid
+                                            [value] => 8bcf31ffe99df4032dbbc18453ce1d0677e1b11a-1664829709
+                                            [attributes] => Requests_Utility_CaseInsensitiveDictionary Object
+                                                (
+                                                    [data:protected] => Array
+                                                        (
+                                                            [path] => /
+                                                            [domain] => api.cloudflare.com
+                                                            [httponly] => 1
+                                                            [secure] => 1
+                                                            [samesite] => None
+                                                        )
+
+                                                )
+
+                                            [flags] => Array
+                                                (
+                                                    [creation] => 1664829709
+                                                    [last-access] => 1664829709
+                                                    [persistent] => 
+                                                    [host-only] => 
+                                                )
+
+                                            [reference_time] => 1664829709
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [filename:protected] => 
+            [data] => 
+            [headers] => 
+            [status] => 
+        )
+
+)
+
+Array
+(
+    [headers] => Requests_Utility_CaseInsensitiveDictionary Object
+        (
+            [data:protected] => Array
+                (
+                    [date] => Mon, 03 Oct 2022 20:45:07 GMT
+                    [content-type] => application/json; charset=UTF-8
+                    [cf-ray] => 754885043f995ffb-SMF
+                    [content-encoding] => gzip
+                    [set-cookie] => Array
+                        (
+                            [0] => __cflb=0H28vgHxwvgAQtjUGU4vq74ZFe3sNVUZfPqo1cbsUCm; SameSite=Lax; path=/; expires=Mon, 03-Oct-22 23:15:08 GMT; HttpOnly
+                            [1] => __cfruid=00704b09eabc6b8d11bcf3ea624221fbd3ee45aa-1664829907; path=/; domain=.api.cloudflare.com; HttpOnly; Secure; SameSite=None
+                        )
+
+                    [vary] => Accept-Encoding
+                    [cf-cache-status] => DYNAMIC
+                    [x-envoy-upstream-service-time] => 436
+                    [server] => cloudflare
+                )
+
+        )
+
+    [body] => {
+  "result": null,
+  "success": false,
+  "errors": [
+    {
+      "code": 10005,
+      "message": "Bad Request"
+    }
+  ],
+  "messages": [
+    {
+      "code": 10005,
+      "message": "Failed to decode body"
+    }
+  ]
+}
+
+    [response] => Array
+        (
+            [code] => 400
+            [message] => Bad Request
+        )
+
+    [cookies] => Array
+        (
+            [0] => WP_Http_Cookie Object
+                (
+                    [name] => __cflb
+                    [value] => 0H28vgHxwvgAQtjUGU4vq74ZFe3sNVUZfPqo1cbsUCm
+                    [expires] => 1664838908
+                    [path] => /
+                    [domain] => api.cloudflare.com
+                    [port] => 
+                    [host_only] => 1
+                )
+
+            [1] => WP_Http_Cookie Object
+                (
+                    [name] => __cfruid
+                    [value] => 00704b09eabc6b8d11bcf3ea624221fbd3ee45aa-1664829907
+                    [expires] => 
+                    [path] => /
+                    [domain] => api.cloudflare.com
+                    [port] => 
+                    [host_only] => 
+                )
+
+        )
+
+    [filename] => 
+    [http_response] => WP_HTTP_Requests_Response Object
+        (
+            [response:protected] => Requests_Response Object
+                (
+                    [body] => {
+  "result": null,
+  "success": false,
+  "errors": [
+    {
+      "code": 10005,
+      "message": "Bad Request"
+    }
+  ],
+  "messages": [
+    {
+      "code": 10005,
+      "message": "Failed to decode body"
+    }
+  ]
+}
+
+                    [raw] => HTTP/1.1 400 Bad Request
+Date: Mon, 03 Oct 2022 20:45:07 GMT
+Content-Type: application/json; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+CF-Ray: 754885043f995ffb-SMF
+Content-Encoding: gzip
+Set-Cookie: __cflb=0H28vgHxwvgAQtjUGU4vq74ZFe3sNVUZfPqo1cbsUCm; SameSite=Lax; path=/; expires=Mon, 03-Oct-22 23:15:08 GMT; HttpOnly
+Vary: Accept-Encoding
+CF-Cache-Status: DYNAMIC
+x-envoy-upstream-service-time: 436
+Set-Cookie: __cfruid=00704b09eabc6b8d11bcf3ea624221fbd3ee45aa-1664829907; path=/; domain=.api.cloudflare.com; HttpOnly; Secure; SameSite=None
+Server: cloudflare
+
+{
+  "result": null,
+  "success": false,
+  "errors": [
+    {
+      "code": 10005,
+      "message": "Bad Request"
+    }
+  ],
+  "messages": [
+    {
+      "code": 10005,
+      "message": "Failed to decode body"
+    }
+  ]
+}
+
+                    [headers] => Requests_Response_Headers Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Array
+                                        (
+                                            [0] => Mon, 03 Oct 2022 20:45:07 GMT
+                                        )
+
+                                    [content-type] => Array
+                                        (
+                                            [0] => application/json; charset=UTF-8
+                                        )
+
+                                    [cf-ray] => Array
+                                        (
+                                            [0] => 754885043f995ffb-SMF
+                                        )
+
+                                    [content-encoding] => Array
+                                        (
+                                            [0] => gzip
+                                        )
+
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => __cflb=0H28vgHxwvgAQtjUGU4vq74ZFe3sNVUZfPqo1cbsUCm; SameSite=Lax; path=/; expires=Mon, 03-Oct-22 23:15:08 GMT; HttpOnly
+                                            [1] => __cfruid=00704b09eabc6b8d11bcf3ea624221fbd3ee45aa-1664829907; path=/; domain=.api.cloudflare.com; HttpOnly; Secure; SameSite=None
+                                        )
+
+                                    [vary] => Array
+                                        (
+                                            [0] => Accept-Encoding
+                                        )
+
+                                    [cf-cache-status] => Array
+                                        (
+                                            [0] => DYNAMIC
+                                        )
+
+                                    [x-envoy-upstream-service-time] => Array
+                                        (
+                                            [0] => 436
+                                        )
+
+                                    [server] => Array
+                                        (
+                                            [0] => cloudflare
+                                        )
+
+                                )
+
+                        )
+
+                    [status_code] => 400
+                    [protocol_version] => 1.1
+                    [success] => 
+                    [redirects] => 0
+                    [url] => https://api.cloudflare.com/client/v4/accounts/5c63240b3aa78582ec4d26feb05a28d7/stream/live_inputs/af7b97afd30365707132be46e3ecb81a
+                    [history] => Array
+                        (
+                        )
+
+                    [cookies] => Requests_Cookie_Jar Object
+                        (
+                            [cookies:protected] => Array
+                                (
+                                    [__cflb] => Requests_Cookie Object
+                                        (
+                                            [name] => __cflb
+                                            [value] => 0H28vgHxwvgAQtjUGU4vq74ZFe3sNVUZfPqo1cbsUCm
+                                            [attributes] => Requests_Utility_CaseInsensitiveDictionary Object
+                                                (
+                                                    [data:protected] => Array
+                                                        (
+                                                            [samesite] => Lax
+                                                            [path] => /
+                                                            [expires] => 1664838908
+                                                            [httponly] => 1
+                                                            [domain] => api.cloudflare.com
+                                                        )
+
+                                                )
+
+                                            [flags] => Array
+                                                (
+                                                    [creation] => 1664829907
+                                                    [last-access] => 1664829907
+                                                    [persistent] => 
+                                                    [host-only] => 1
+                                                )
+
+                                            [reference_time] => 1664829907
+                                        )
+
+                                    [__cfruid] => Requests_Cookie Object
+                                        (
+                                            [name] => __cfruid
+                                            [value] => 00704b09eabc6b8d11bcf3ea624221fbd3ee45aa-1664829907
+                                            [attributes] => Requests_Utility_CaseInsensitiveDictionary Object
+                                                (
+                                                    [data:protected] => Array
+                                                        (
+                                                            [path] => /
+                                                            [domain] => api.cloudflare.com
+                                                            [httponly] => 1
+                                                            [secure] => 1
+                                                            [samesite] => None
+                                                        )
+
+                                                )
+
+                                            [flags] => Array
+                                                (
+                                                    [creation] => 1664829907
+                                                    [last-access] => 1664829907
+                                                    [persistent] => 
+                                                    [host-only] => 
+                                                )
+
+                                            [reference_time] => 1664829907
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [filename:protected] => 
+            [data] => 
+            [headers] => 
+            [status] => 
+        )
+
+)
+
+Array
+(
+    [headers] => Requests_Utility_CaseInsensitiveDictionary Object
+        (
+            [data:protected] => Array
+                (
+                    [date] => Mon, 03 Oct 2022 20:47:42 GMT
+                    [content-type] => application/json; charset=UTF-8
+                    [cf-ray] => 754888d21c305f8e-SMF
+                    [content-encoding] => gzip
+                    [set-cookie] => Array
+                        (
+                            [0] => __cflb=0H28vgHxwvgAQtjUGU4vq74ZFe3sNVUZNfnvadgCVkq; SameSite=Lax; path=/; expires=Mon, 03-Oct-22 23:17:43 GMT; HttpOnly
+                            [1] => __cfruid=6fe70cacd126581d9c29e60b2a1b4f7735e6ee51-1664830062; path=/; domain=.api.cloudflare.com; HttpOnly; Secure; SameSite=None
+                        )
+
+                    [vary] => Accept-Encoding
+                    [cf-cache-status] => DYNAMIC
+                    [x-envoy-upstream-service-time] => 230
+                    [server] => cloudflare
+                )
+
+        )
+
+    [body] => {
+  "result": {
+    "uid": "af7b97afd30365707132be46e3ecb81a",
+    "rtmps": {
+      "url": "rtmps://live.cloudflare.com:443/live/",
+      "streamKey": "4f88ac587c21cd4773560d8782da5992kaf7b97afd30365707132be46e3ecb81a"
+    },
+    "rtmpsPlayback": {
+      "url": "rtmps://live.cloudflare.com:443/live/",
+      "streamKey": "a22c677bd85ba839d94c6d877eb45db5kaf7b97afd30365707132be46e3ecb81a"
+    },
+    "srt": {
+      "url": "srt://live.cloudflare.com:778",
+      "streamId": "af7b97afd30365707132be46e3ecb81a",
+      "passphrase": "202eae97f0bd971c87e94ebdce43fa1ckaf7b97afd30365707132be46e3ecb81a"
+    },
+    "srtPlayback": {
+      "url": "srt://live.cloudflare.com:778",
+      "streamId": "playaf7b97afd30365707132be46e3ecb81a",
+      "passphrase": "379cc69f58e183a82ebaf68e32d611d0kaf7b97afd30365707132be46e3ecb81a"
+    },
+    "webRTC": {
+      "url": "https://customer-85isopi7l4huoj8o.cloudflarestream.com/249021ab0f17343e8eb02bb909faf0f2kaf7b97afd30365707132be46e3ecb81a/webRTC/publish"
+    },
+    "webRTCPlayback": {
+      "url": "https://customer-85isopi7l4huoj8o.cloudflarestream.com/af7b97afd30365707132be46e3ecb81a/webRTC/play"
+    },
+    "created": "2022-10-03T20:21:17.17198Z",
+    "modified": "2022-10-03T20:47:42.587455Z",
+    "meta": {
+      "name": "my-super-awesome-stream"
+    },
+    "defaultCreator": "1",
+    "status": null,
+    "recording": {
+      "mode": "off",
+      "requireSignedURLs": false,
+      "allowedOrigins": null
+    }
+  },
+  "success": true,
+  "errors": [],
+  "messages": []
+}
+
+    [response] => Array
+        (
+            [code] => 200
+            [message] => OK
+        )
+
+    [cookies] => Array
+        (
+            [0] => WP_Http_Cookie Object
+                (
+                    [name] => __cflb
+                    [value] => 0H28vgHxwvgAQtjUGU4vq74ZFe3sNVUZNfnvadgCVkq
+                    [expires] => 1664839063
+                    [path] => /
+                    [domain] => api.cloudflare.com
+                    [port] => 
+                    [host_only] => 1
+                )
+
+            [1] => WP_Http_Cookie Object
+                (
+                    [name] => __cfruid
+                    [value] => 6fe70cacd126581d9c29e60b2a1b4f7735e6ee51-1664830062
+                    [expires] => 
+                    [path] => /
+                    [domain] => api.cloudflare.com
+                    [port] => 
+                    [host_only] => 
+                )
+
+        )
+
+    [filename] => 
+    [http_response] => WP_HTTP_Requests_Response Object
+        (
+            [response:protected] => Requests_Response Object
+                (
+                    [body] => {
+  "result": {
+    "uid": "af7b97afd30365707132be46e3ecb81a",
+    "rtmps": {
+      "url": "rtmps://live.cloudflare.com:443/live/",
+      "streamKey": "4f88ac587c21cd4773560d8782da5992kaf7b97afd30365707132be46e3ecb81a"
+    },
+    "rtmpsPlayback": {
+      "url": "rtmps://live.cloudflare.com:443/live/",
+      "streamKey": "a22c677bd85ba839d94c6d877eb45db5kaf7b97afd30365707132be46e3ecb81a"
+    },
+    "srt": {
+      "url": "srt://live.cloudflare.com:778",
+      "streamId": "af7b97afd30365707132be46e3ecb81a",
+      "passphrase": "202eae97f0bd971c87e94ebdce43fa1ckaf7b97afd30365707132be46e3ecb81a"
+    },
+    "srtPlayback": {
+      "url": "srt://live.cloudflare.com:778",
+      "streamId": "playaf7b97afd30365707132be46e3ecb81a",
+      "passphrase": "379cc69f58e183a82ebaf68e32d611d0kaf7b97afd30365707132be46e3ecb81a"
+    },
+    "webRTC": {
+      "url": "https://customer-85isopi7l4huoj8o.cloudflarestream.com/249021ab0f17343e8eb02bb909faf0f2kaf7b97afd30365707132be46e3ecb81a/webRTC/publish"
+    },
+    "webRTCPlayback": {
+      "url": "https://customer-85isopi7l4huoj8o.cloudflarestream.com/af7b97afd30365707132be46e3ecb81a/webRTC/play"
+    },
+    "created": "2022-10-03T20:21:17.17198Z",
+    "modified": "2022-10-03T20:47:42.587455Z",
+    "meta": {
+      "name": "my-super-awesome-stream"
+    },
+    "defaultCreator": "1",
+    "status": null,
+    "recording": {
+      "mode": "off",
+      "requireSignedURLs": false,
+      "allowedOrigins": null
+    }
+  },
+  "success": true,
+  "errors": [],
+  "messages": []
+}
+
+                    [raw] => HTTP/1.1 200 OK
+Date: Mon, 03 Oct 2022 20:47:42 GMT
+Content-Type: application/json; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+CF-Ray: 754888d21c305f8e-SMF
+Content-Encoding: gzip
+Set-Cookie: __cflb=0H28vgHxwvgAQtjUGU4vq74ZFe3sNVUZNfnvadgCVkq; SameSite=Lax; path=/; expires=Mon, 03-Oct-22 23:17:43 GMT; HttpOnly
+Vary: Accept-Encoding
+CF-Cache-Status: DYNAMIC
+x-envoy-upstream-service-time: 230
+Set-Cookie: __cfruid=6fe70cacd126581d9c29e60b2a1b4f7735e6ee51-1664830062; path=/; domain=.api.cloudflare.com; HttpOnly; Secure; SameSite=None
+Server: cloudflare
+
+{
+  "result": {
+    "uid": "af7b97afd30365707132be46e3ecb81a",
+    "rtmps": {
+      "url": "rtmps://live.cloudflare.com:443/live/",
+      "streamKey": "4f88ac587c21cd4773560d8782da5992kaf7b97afd30365707132be46e3ecb81a"
+    },
+    "rtmpsPlayback": {
+      "url": "rtmps://live.cloudflare.com:443/live/",
+      "streamKey": "a22c677bd85ba839d94c6d877eb45db5kaf7b97afd30365707132be46e3ecb81a"
+    },
+    "srt": {
+      "url": "srt://live.cloudflare.com:778",
+      "streamId": "af7b97afd30365707132be46e3ecb81a",
+      "passphrase": "202eae97f0bd971c87e94ebdce43fa1ckaf7b97afd30365707132be46e3ecb81a"
+    },
+    "srtPlayback": {
+      "url": "srt://live.cloudflare.com:778",
+      "streamId": "playaf7b97afd30365707132be46e3ecb81a",
+      "passphrase": "379cc69f58e183a82ebaf68e32d611d0kaf7b97afd30365707132be46e3ecb81a"
+    },
+    "webRTC": {
+      "url": "https://customer-85isopi7l4huoj8o.cloudflarestream.com/249021ab0f17343e8eb02bb909faf0f2kaf7b97afd30365707132be46e3ecb81a/webRTC/publish"
+    },
+    "webRTCPlayback": {
+      "url": "https://customer-85isopi7l4huoj8o.cloudflarestream.com/af7b97afd30365707132be46e3ecb81a/webRTC/play"
+    },
+    "created": "2022-10-03T20:21:17.17198Z",
+    "modified": "2022-10-03T20:47:42.587455Z",
+    "meta": {
+      "name": "my-super-awesome-stream"
+    },
+    "defaultCreator": "1",
+    "status": null,
+    "recording": {
+      "mode": "off",
+      "requireSignedURLs": false,
+      "allowedOrigins": null
+    }
+  },
+  "success": true,
+  "errors": [],
+  "messages": []
+}
+
+                    [headers] => Requests_Response_Headers Object
+                        (
+                            [data:protected] => Array
+                                (
+                                    [date] => Array
+                                        (
+                                            [0] => Mon, 03 Oct 2022 20:47:42 GMT
+                                        )
+
+                                    [content-type] => Array
+                                        (
+                                            [0] => application/json; charset=UTF-8
+                                        )
+
+                                    [cf-ray] => Array
+                                        (
+                                            [0] => 754888d21c305f8e-SMF
+                                        )
+
+                                    [content-encoding] => Array
+                                        (
+                                            [0] => gzip
+                                        )
+
+                                    [set-cookie] => Array
+                                        (
+                                            [0] => __cflb=0H28vgHxwvgAQtjUGU4vq74ZFe3sNVUZNfnvadgCVkq; SameSite=Lax; path=/; expires=Mon, 03-Oct-22 23:17:43 GMT; HttpOnly
+                                            [1] => __cfruid=6fe70cacd126581d9c29e60b2a1b4f7735e6ee51-1664830062; path=/; domain=.api.cloudflare.com; HttpOnly; Secure; SameSite=None
+                                        )
+
+                                    [vary] => Array
+                                        (
+                                            [0] => Accept-Encoding
+                                        )
+
+                                    [cf-cache-status] => Array
+                                        (
+                                            [0] => DYNAMIC
+                                        )
+
+                                    [x-envoy-upstream-service-time] => Array
+                                        (
+                                            [0] => 230
+                                        )
+
+                                    [server] => Array
+                                        (
+                                            [0] => cloudflare
+                                        )
+
+                                )
+
+                        )
+
+                    [status_code] => 200
+                    [protocol_version] => 1.1
+                    [success] => 1
+                    [redirects] => 0
+                    [url] => https://api.cloudflare.com/client/v4/accounts/5c63240b3aa78582ec4d26feb05a28d7/stream/live_inputs/af7b97afd30365707132be46e3ecb81a
+                    [history] => Array
+                        (
+                        )
+
+                    [cookies] => Requests_Cookie_Jar Object
+                        (
+                            [cookies:protected] => Array
+                                (
+                                    [__cflb] => Requests_Cookie Object
+                                        (
+                                            [name] => __cflb
+                                            [value] => 0H28vgHxwvgAQtjUGU4vq74ZFe3sNVUZNfnvadgCVkq
+                                            [attributes] => Requests_Utility_CaseInsensitiveDictionary Object
+                                                (
+                                                    [data:protected] => Array
+                                                        (
+                                                            [samesite] => Lax
+                                                            [path] => /
+                                                            [expires] => 1664839063
+                                                            [httponly] => 1
+                                                            [domain] => api.cloudflare.com
+                                                        )
+
+                                                )
+
+                                            [flags] => Array
+                                                (
+                                                    [creation] => 1664830063
+                                                    [last-access] => 1664830063
+                                                    [persistent] => 
+                                                    [host-only] => 1
+                                                )
+
+                                            [reference_time] => 1664830063
+                                        )
+
+                                    [__cfruid] => Requests_Cookie Object
+                                        (
+                                            [name] => __cfruid
+                                            [value] => 6fe70cacd126581d9c29e60b2a1b4f7735e6ee51-1664830062
+                                            [attributes] => Requests_Utility_CaseInsensitiveDictionary Object
+                                                (
+                                                    [data:protected] => Array
+                                                        (
+                                                            [path] => /
+                                                            [domain] => api.cloudflare.com
+                                                            [httponly] => 1
+                                                            [secure] => 1
+                                                            [samesite] => None
+                                                        )
+
+                                                )
+
+                                            [flags] => Array
+                                                (
+                                                    [creation] => 1664830063
+                                                    [last-access] => 1664830063
+                                                    [persistent] => 
+                                                    [host-only] => 
+                                                )
+
+                                            [reference_time] => 1664830063
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [filename:protected] => 
+            [data] => 
+            [headers] => 
+            [status] => 
+        )
+
+)
+
