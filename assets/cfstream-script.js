@@ -1,6 +1,5 @@
-
-
-/*function checkStreamHealth(){
+/*
+function checkStreamHealth(){
   var xhttp = new XMLHttpRequest();
     // https://livepeer.studio/data/stream//health
     xhttp.open("GET", "https://api.cloudflare.com/client/v4/accounts/".cfstream_jsobject.account_id."/stream/live_inputs/"+cfstream_jsobject.stream_id+"/videos", true);
@@ -50,6 +49,6 @@ var onDurationChange = function(){
     if(video.readyState){
         
     }
-};*/
-
-      //player.play();
+};
+player.play();
+*/

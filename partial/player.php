@@ -56,60 +56,72 @@
       <img src="<?php echo esc_url( $image ) ?>" alt="<?php echo $options['livepeer_stream_name']?> Offline Banner" />
   </div>
   <div id="video-container"  style="display: none;">
-    <div class="video-box" style="position: relative; padding-top: 56.25%;"></div>
+    <div class="video-box" style="">
+      <video id="remote-video" controls autoplay muted></video>
+    </div>
   </div>
 </div>
 
+    
 
-<script>
-  jQuery(document).ready(function($){
-    var x = 0;
-    function checkStreamHealth(timer){
-      $.ajax({
-        url: '<?php echo admin_url( 'admin-ajax.php' ); ?>',
-        method: "POST",
-        dataType: 'json',
-        data: {
-          action : 'cloudflare_check_stream_health',
-          channel_id : '<?php echo $channel_id;?>',
-          channel_name : '<?php echo $channel_name; ?>'
-        },
-        success: function(d){
+    <script type="module">
 
-          if( d.errors.length ){
-            go_offline();
-          } else {
-            if( d.result.status.current.state == 'connected' ){
-              if(!x){
-                $('#video-container .video-box')
-                  .html('<iframe src="'+d.result.webRTCPlayback.url.replace('webRTC/play', 'iframe')+'" \
-                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;" \
-                    allowfullscreen="true"></iframe>')
-              }
-              x = 1;
-              $('#video-container').show();
-              $('#cover-image').hide();
-            } else {
-              x = 0;
-              go_offline();
+      import WHEPClient from '<?php echo plugin_dir_url(__DIR__);?>assets/WHEPclient.js';
+      const videoElement = document.getElementById('remote-video');
+      var timer = {};
+      let online = 0;
+
+      function go_online(){
+      }
+
+      function go_offline(){
+      }
+
+      function checkStreamHealth(timer){
+
+        jQuery.ajax({
+          url: '<?php echo admin_url( 'admin-ajax.php' ); ?>',
+          method: "POST",
+          dataType: 'json',
+          data: {
+            action : 'cloudflare_check_stream_health',
+            channel_id : '<?php echo $channel_id;?>',
+            channel_name : '<?php echo $channel_name; ?>'
+          },
+          success: function(d){
+
+            if( d.result.status.current.state == 'connected' && online == 0 ){
+              
+              const url = 'https://customer-85isopi7l4huoj8o.cloudflarestream.com/355966db3d747f4f0f8d3e3941e4b98c/webRTC/play';
+              self.whepClient = new WHEPClient(url, videoElement);
+              videoElement.play();
+
+              jQuery('#cover-image').hide();
+              jQuery('#video-container').show();
+              clearInterval(timer);
+              return;
+
             }
+
           }
-        }
-      })
-    }
 
-    function go_online(d,x){
-    }
+        });
+      }
 
-    function go_offline(){
-      $('#cover-image').show();
-      $('#video-container').hide();
-    }
+      videoElement.addEventListener('playing', (event) => {
+        console.log('Video is no longer paused');
+        go_online();
+      });
 
-    var timer = setInterval(function(){
-      checkStreamHealth(timer);
-    },10000);
+      videoElement.addEventListener('ended', (event) => {
+        console.log('Video is no longer playing');
+        go_offline();
+      });
 
-    checkStreamHealth(timer);
-  })
-</script>
+      checkStreamHealth();
+
+      timer = setInterval(function(){
+        checkStreamHealth(timer);
+      },10000, online);
+
+    </script>

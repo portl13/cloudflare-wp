@@ -1,7 +1,7 @@
 <?php
 
-add_shortcode( 'cloudflare_stream_golive', 'livepeerwp_viewer_shortcode' );
-function livepeerwp_viewer_shortcode( $atts = array(), $content = '' ) {
+add_shortcode( 'cloudflare_stream_golive', 'cfstream_viewer_shortcode' );
+function cfstream_viewer_shortcode( $atts = array(), $content = '' ) {
 
   $atts = shortcode_atts( array(
     'id' => 'value',
@@ -11,12 +11,12 @@ function livepeerwp_viewer_shortcode( $atts = array(), $content = '' ) {
     
     $stream_created = cfstream_get_or_create_stream();
     $options = get_option('cloudflare_stream_wp_options');
-    $user_meta = get_user_meta($user_id, '_stream_cofig', true);
+    $user_meta = get_user_meta($user_id, 'cfs_stream_config', true);
 
     $webRTC = $user_meta->webRTC->url;
 
     ob_start();
-    include dirname(__DIR__).'/partial/viewer.php';
+    include dirname(__DIR__).'/partial/golive.php';
     return ob_get_clean();
 
   }
@@ -25,8 +25,8 @@ function livepeerwp_viewer_shortcode( $atts = array(), $content = '' ) {
   // do shortcode actions here
 }
 
-add_shortcode( 'cloudflare_stream_player', 'livepeerwp_player_shortcode' );
-function livepeerwp_player_shortcode( $atts = array(), $content = '' ) {
+add_shortcode( 'cloudflare_stream_player', 'cfstream_player_shortcode' );
+function cfstream_player_shortcode( $atts = array(), $content = '' ) {
 
   $atts = shortcode_atts( array(
     'channel' => '',

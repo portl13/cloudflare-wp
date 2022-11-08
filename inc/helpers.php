@@ -79,7 +79,7 @@ function cfstream_create_stream($user_id, $stream_name = null, $recording = true
             
             $user_id,
             
-            "_stream_cofig",
+            "cfs_stream_config",
             
             $api_body->result
         );
@@ -133,7 +133,7 @@ function cfstream_get_or_create_stream($stream_name = null, $recording = true) {
 
     $user_id = get_current_user_id();
 
-    $user_meta = get_user_meta($user_id, "_stream_cofig", true);
+    $user_meta = get_user_meta($user_id, "cfs_stream_config", true);
 
     $stream_id = $user_meta->uid;
 
@@ -216,7 +216,7 @@ function cfstream_update_stream($stream_id, $stream_name, $recording){
             
             $user_id,
             
-            "_stream_cofig",
+            "cfs_stream_config",
             
             $api_body->result
         );

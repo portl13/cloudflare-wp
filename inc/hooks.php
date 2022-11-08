@@ -12,7 +12,9 @@ add_action( 'init',  function() {
 
     $user_id = get_current_user_id();
 
-    $user_meta = get_user_meta($user_id, '_stream_cofig', true);
+    $user_meta = get_user_meta($user_id, 'cfs_stream_config', true);
+
+    if( !is_object($user_meta) ) return;
 
     $options = get_option('cloudflare_stream_wp_options');
     
@@ -85,14 +87,14 @@ add_action( 'init', function() {
 add_action('wp_enqueue_scripts', function(){
   $options = get_option('cloudflare_stream_wp_options');
   $user_id = get_current_user_id();
-  $user_meta = get_user_meta($user_id, '_stream_cofig', true);
+  $user_meta = get_user_meta($user_id, 'cfs_stream_config', true);
 
   wp_register_script('cfstream-script', plugin_dir_url(__DIR__) . '/assets/cfstream-script.js', array(), null, true);
   wp_localize_script( 'cfstream-script', 'cfstream_jsobject',
     array( 
       'ajaxurl' => admin_url( 'admin-ajax.php' ),
       'api_token' => $options['cloudflare_stream_API_TOKEN'],
-      'stream_id' => $user_meta->id,
+      'stream_id' => $user_meta->uid,
       'account_id' => $options['cloudflare_stream_account_id']
     )
   );
@@ -104,6 +106,9 @@ add_action('wp_enqueue_scripts', function(){
 add_action('admin_enqueue_scripts', 'cfstream_event_datepicker');
 function cfstream_event_datepicker(){
   global $post;
+  
+  if( !is_object($post) ) return;
+
   if( $post->post_type == 'cfstream-events' ){
 
     wp_enqueue_script( 'jquery-ui-datepicker-init',
@@ -170,7 +175,7 @@ function cloudflare_check_stream_health_callback() {
 
     global $wpdb;
     $user_id = $wpdb->get_var("SELECT `user_id` FROM `{$wpdb->prefix}usermeta` WHERE `meta_key` = '_channel_name' AND `meta_value` = '{$_POST['channel_name']}'");
-    $stream_config = get_user_meta($user_id, '_stream_cofig', true);
+    $stream_config = get_user_meta($user_id, 'cfs_stream_config', true);
 
     $cloudflare_stream_url = 'https://api.cloudflare.com/client/v4/accounts/'.$_POST['channel_id'].'/stream/live_inputs/'.$stream_config->uid.'/videos';
     

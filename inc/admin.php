@@ -46,7 +46,7 @@ function cloudflare_stream_wp_options_page(){
   
   $options = get_option( 'cloudflare_stream_wp_options' );
 
-  $user_meta = get_user_meta(get_current_user_id(), '_stream_cofig', true);
+  $user_meta = get_user_meta(get_current_user_id(), 'cfs_stream_config', true);
   $channel_banner = get_user_meta(get_current_user_id(), '_channel_banner', true);
 
   ob_start(); include dirname(__DIR__) . '/partial/admin.php'; $template = ob_get_clean();
@@ -59,7 +59,10 @@ function rudr_include_js() {
   
   // I recommend to add additional conditions here
   // because we probably do not need the scripts on every admin page, right?
-  if( !isset($_GET['page']) && $_GET['page'] != 'cloudflare-stream-options' )
+  if( !isset($_GET['page']) )
+    return;
+
+  if( $_GET['page'] != 'cloudflare-stream-options' )
     return;
 
   // WordPress media uploader scripts
