@@ -42,6 +42,7 @@ function cfstream_player_shortcode( $atts = array(), $content = '' ) {
     $user_id = $wpdb->get_var("SELECT `user_id` FROM `{$wpdb->prefix}usermeta` WHERE `meta_key` = '_channel_id' AND `meta_value` = '{$atts['channel']}'");
     if( $user_id ){
       $channel_name = get_user_meta($user_id, '_channel_name', true);
+      $user_meta = get_user_meta($user_id, 'cfs_stream_config', true);
       if( $channel_name ){
         $channel_id = $atts['channel'];
       }

@@ -71,7 +71,7 @@
 
   <script type="module">
 
-      import WHIPClient from '<?php echo plugin_dir_url(__DIR__);?>assets/WHIPClient.js';
+      import WHIPClient from '<?php echo plugin_dir_url(__DIR__);?>assets/WHIPclient.js';
 
       const video = document.getElementById("stream-video");
       const golive = document.getElementById("golive");

@@ -53,7 +53,7 @@
 <!-- HTML -->
 <div id="fluidMedia">
   <div id="cover-image">
-      <img src="<?php echo esc_url( $image ) ?>" alt="<?php echo $options['livepeer_stream_name']?> Offline Banner" />
+      <img src="<?php echo esc_url( $image ) ?>" alt="<?php echo $channel_name; ?> Offline Banner" />
   </div>
   <div id="video-container"  style="display: none;">
     <div class="video-box" style="">
@@ -92,7 +92,7 @@
 
             if( d.result.status.current.state == 'connected' && online == 0 ){
               
-              const url = 'https://customer-85isopi7l4huoj8o.cloudflarestream.com/355966db3d747f4f0f8d3e3941e4b98c/webRTC/play';
+              const url = '<?php echo $user_meta->webRTCPlayback->url;?>';
               self.whepClient = new WHEPClient(url, videoElement);
               videoElement.play();
 

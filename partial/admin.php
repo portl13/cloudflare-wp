@@ -118,18 +118,15 @@
     min-width: 200px;
   }
 </style>
-
 <div class="wrap" style="width:90%">
     
   <form method="POST" action="<?=get_admin_url();?>admin.php?page=cloudflare-stream-options">
-
-
    
   <table class="form-table">
     <tbody>
       <tr>
         <td style="text-align: right;">
-          <input type="submit" name="publish" value="Save Options" class="button" />
+          <input type="submit" name="publish" value="Save Options" class="button" /> <a href="#" id="delete-stream" class="button">Delete</a>
         </td>
       </tr>
     </tbody>
@@ -436,3 +433,19 @@
   </form>
 
 </div><!-- .wrap -->
+
+<script>
+  jQuery(document).ready(function($){
+    $('#delete-stream').on('click', function(){
+      $.ajax({
+        url : '<?php echo admin_url('admin-ajax.php')?>',
+        data : {
+          action: 'cloudflare_delete_stream'
+        },
+        success: function(d){
+          window.location.reload();
+        }
+      })
+    })
+  })
+</script>

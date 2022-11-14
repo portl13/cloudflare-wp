@@ -183,3 +183,26 @@ function cloudflare_check_stream_health_callback() {
 
     die($result);
 }
+
+add_action( 'wp_ajax_cloudflare_delete_stream', 'cloudflare_delete_stream');
+add_action( 'wp_ajax_nopriv_cloudflare_delete_stream', 'cloudflare_delete_stream');
+function cloudflare_delete_stream(){
+  cloudflare_portl_delete_stream();
+}
+
+add_action('init', 'livepeer_reset_permalinks');
+function livepeer_reset_permalinks(){
+  
+  if( get_option('cloudflare_needs_reset') ){
+    //Set permlinks on theme activate
+    $current_setting = get_option('permalink_structure');
+
+    // Save permalinks to a custom setting, force create of rules file
+    global $wp_rewrite;
+    update_option("rewrite_rules", FALSE);
+    $wp_rewrite->set_permalink_structure($current_setting);
+    $wp_rewrite->flush_rules(true);
+
+    delete_option('cloudflare_needs_reset');
+  }
+}

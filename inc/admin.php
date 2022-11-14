@@ -39,7 +39,12 @@ function cloudflare_stream_wp_options_page(){
     // TODO: Need to figure out how to play a live stream if this is set to off.
     // for now, leaving it as a hard recording = on.
     $recording = true; //isset($_POST['cloudflare_stream_recording']);
-    $stream_created = cfstream_get_or_create_stream($_POST['cloudflare_stream_name'],$recording);
+
+
+    if( isset($_POST['cloudflare_stream_name']) ){
+      $stream_created = cfstream_get_or_create_stream($_POST['cloudflare_stream_name'],$recording);
+      update_option('cloudflare_needs_reset', TRUE);
+    }
     update_option( 'cloudflare_stream_wp_options', $_POST );
     update_user_meta(get_current_user_id(),'_channel_banner', $_POST['rudr_img']);
   }
