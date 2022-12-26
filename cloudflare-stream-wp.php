@@ -34,7 +34,7 @@ function cfstream_wp_activate() {
           'post_title'     => ucwords('player'),
           'post_name'      => strtolower(str_replace(' ', '-', trim('player'))),
           'post_status'    => 'publish',
-          'post_content'   => '[cfstream_player]',
+          'post_content'   => '[cloudflare_stream_player]',
           'post_type'      => 'page'
           )
       );

@@ -176,7 +176,7 @@
                 <label for="input-text">Cloudflare Stream Name</label>
               </th>
               <td>
-                <input type="text" name="cloudflare_stream_name" placeholder="..."  value="<?php echo $options['cloudflare_stream_name'];?>"><br />
+                <input type="text" name="cloudflare_stream_name" placeholder="..."  value="<?php echo stripslashes($options['cloudflare_stream_name']);?>"><br />
               </td>
             </tr>
             <?php if( $user_meta ):?>
@@ -395,7 +395,7 @@
             <label for="input-text">Cloudflare Api Key</label>
           </th>
           <td>
-            <input type="text" name="cloudflare_stream_API_TOKEN" placeholder="..." value="<?php echo $options['cloudflare_stream_API_TOKEN'];?>"><br />
+            <input type="text" name="cloudflare_stream_API_TOKEN" placeholder="..." value="<?php echo $options ? $options['cloudflare_stream_API_TOKEN'] : '';?>"><br />
           </td>
         </tr>
         <tr>
@@ -403,7 +403,7 @@
             <label for="input-text">Cloudflare Email</label>
           </th>
           <td>
-            <input type="text" name="cloudflare_stream_email" placeholder="..." value="<?php echo $options['cloudflare_stream_email'];?>"><br />
+            <input type="text" name="cloudflare_stream_email" placeholder="..." value="<?php echo $options ? $options['cloudflare_stream_email'] : '';?>"><br />
           </td>
         </tr>
         <tr>
@@ -411,7 +411,7 @@
             <label for="input-text">Cloudflare Account ID</label>
           </th>
           <td>
-            <input type="text" name="cloudflare_stream_account_id" placeholder="..." value="<?php echo $options['cloudflare_stream_account_id'];?>"><br />
+            <input type="text" name="cloudflare_stream_account_id" placeholder="..." value="<?php echo $options ? $options['cloudflare_stream_account_id'] : '';?>"><br />
           </td>
         </tr>
       </tbody>
@@ -443,7 +443,7 @@
           action: 'cloudflare_delete_stream'
         },
         success: function(d){
-          window.location.reload();
+          //window.location.reload();
         }
       })
     })

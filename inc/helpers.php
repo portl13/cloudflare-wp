@@ -55,7 +55,7 @@ function cfstream_create_stream($user_id, $stream_name = null, $recording = true
 
     ]);
 
-    error_log(print_r($api_response,1) . "\r\n", 3, __DIR__ . '/created.log');
+    //error_log(print_r($api_response,1) . "\r\n", 3, __DIR__ . '/created.log');
 
     $api_body = wp_remote_retrieve_body($api_response);
 
@@ -89,7 +89,7 @@ function cfstream_create_stream($user_id, $stream_name = null, $recording = true
         $assign_channel_name = update_user_meta(
             $user_id,
             "_channel_name",
-            $channel_name
+            addslashes($channel_name)
         );
 
         $assign_channel_id = update_user_meta(
@@ -114,6 +114,7 @@ function cfstream_verify_stream($stream_id){
 
     $cloudflare_stream_url = 'https://api.cloudflare.com/client/v4/accounts/'.$stream_account_id.'/stream/live_inputs/'.$stream_id;
 
+
     $api_response = wp_remote_get($cloudflare_stream_url, [
         
         "headers" => [
@@ -125,6 +126,9 @@ function cfstream_verify_stream($stream_id){
         ],
 
     ]);
+
+
+    //error_log(print_r($api_response,1), 3, __DIR__ . '/verify.log');
 
     $api_body = wp_remote_retrieve_body($api_response);
     return $api_body;
@@ -246,11 +250,13 @@ function cfstream_update_stream($stream_id, $stream_name, $recording){
 
 function cloudflare_portl_delete_stream(){
 
+    $user_id = get_current_user_id();
+
     $cloudflare_stream_wp_options = get_option('cloudflare_stream_wp_options');
 
-    $global_stream_config = get_user_meta(get_current_user_id(), 'cfs_stream_config', true);
+    $global_stream_config = get_user_meta($user_id, 'cfs_stream_config', true);
 
-    $stream_id = $global_stream_config->id;
+    $stream_id = $global_stream_config->uid;
     
     $packet = array(
 
@@ -262,25 +268,23 @@ function cloudflare_portl_delete_stream(){
 
         ],
 
-        'method' => 'DELETE',
-
-
+        'method' => 'DELETE'
     );
 
-    $response = wp_remote_request( "https://api.cloudflare.com/client/v4/accounts/".$cloudflare_stream_wp_options['cloudflare_stream_account_id']
-        ."/stream/live_inputs/".$global_stream_config->uid,
-    
-        $packet
-    
-    );
+    $address = "https://api.cloudflare.com/client/v4/accounts/"
+        .$cloudflare_stream_wp_options['cloudflare_stream_account_id']
+        ."/stream/live_inputs/".$stream_id;
+
+    $response = wp_remote_request( $address, $packet );
 
     $status_code = wp_remote_retrieve_response_code($response);
+
+    error_log(print_r($response,1), 3, __DIR__ . '/deleted.log');
 
     if( $status_code == '200' ){
 
         delete_option('cloudflare_stream_wp_options');
-        $user_id = get_current_user_id();
-        delete_user_meta($user_id, 'cfs_stream_config', true);
+        delete_user_meta($user_id, 'cfs_stream_config');
 
         return $status_code;
     }

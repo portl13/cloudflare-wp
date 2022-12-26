@@ -1,9 +1,28 @@
 <?php 
 
-  if( empty($channel_id) && empty($channel_name) ){
+/*  if( empty($channel_id) && empty($channel_name) ){
 
      $channel_id = get_query_var('channel_id');
      $channel_name = get_query_var('channel_name');
+  }
+*/
+
+  $channel_id = !empty($atts['channel']) ? $atts['channel'] : get_query_var('channel_id');
+
+  global $wpdb;
+  $user_id = $wpdb->get_var("SELECT `user_id` FROM `{$wpdb->prefix}usermeta` WHERE `meta_key` = '_channel_id' AND `meta_value` = '{$channel_id}'");
+
+  
+  if( $user_id ){
+    $channel_name = get_user_meta($user_id, '_channel_name', true);
+    $user_meta = get_user_meta($user_id, 'cfs_stream_config', true);
+    if( $channel_name ){
+      $channel_id = $atts['channel'];
+    }
+  } else {
+
+    echo '<h3>404: This stream could not be found.</h3>';
+    exit;
   }
 
 ?>
@@ -60,68 +79,66 @@
       <video id="remote-video" controls autoplay muted></video>
     </div>
   </div>
-</div>
+</div>    
 
-    
+<script type="module">
 
-    <script type="module">
+  import WHEPClient from '<?php echo plugin_dir_url(__DIR__);?>assets/WHEPclient.js';
+  const videoElement = document.getElementById('remote-video');
+  var timer = {};
+  let online = 0;
 
-      import WHEPClient from '<?php echo plugin_dir_url(__DIR__);?>assets/WHEPclient.js';
-      const videoElement = document.getElementById('remote-video');
-      var timer = {};
-      let online = 0;
+  function go_online(){
+  }
 
-      function go_online(){
+  function go_offline(){
+  }
+
+  function checkStreamHealth(timer){
+
+    jQuery.ajax({
+      url: '<?php echo admin_url( 'admin-ajax.php' ); ?>',
+      method: "POST",
+      dataType: 'json',
+      data: {
+        action : 'cloudflare_check_stream_health',
+        channel_id : '<?php echo $channel_id;?>',
+        channel_name : '<?php echo $channel_name; ?>'
+      },
+      success: function(d){
+
+        if( d.result.status.current.state == 'connected' && online == 0 ){
+          
+          const url = '<?php echo $user_meta->webRTCPlayback->url;?>';
+          self.whepClient = new WHEPClient(url, videoElement);
+          videoElement.play();
+
+          jQuery('#cover-image').hide();
+          jQuery('#video-container').show();
+          clearInterval(timer);
+          return;
+
+        }
+
       }
 
-      function go_offline(){
-      }
+    });
+  }
 
-      function checkStreamHealth(timer){
+  videoElement.addEventListener('playing', (event) => {
+    console.log('Video is no longer paused');
+    go_online();
+  });
 
-        jQuery.ajax({
-          url: '<?php echo admin_url( 'admin-ajax.php' ); ?>',
-          method: "POST",
-          dataType: 'json',
-          data: {
-            action : 'cloudflare_check_stream_health',
-            channel_id : '<?php echo $channel_id;?>',
-            channel_name : '<?php echo $channel_name; ?>'
-          },
-          success: function(d){
+  videoElement.addEventListener('ended', (event) => {
+    console.log('Video is no longer playing');
+    go_offline();
+  });
 
-            if( d.result.status.current.state == 'connected' && online == 0 ){
-              
-              const url = '<?php echo $user_meta->webRTCPlayback->url;?>';
-              self.whepClient = new WHEPClient(url, videoElement);
-              videoElement.play();
+  checkStreamHealth();
 
-              jQuery('#cover-image').hide();
-              jQuery('#video-container').show();
-              clearInterval(timer);
-              return;
+  timer = setInterval(function(){
+    checkStreamHealth(timer);
+  },10000, online);
 
-            }
-
-          }
-
-        });
-      }
-
-      videoElement.addEventListener('playing', (event) => {
-        console.log('Video is no longer paused');
-        go_online();
-      });
-
-      videoElement.addEventListener('ended', (event) => {
-        console.log('Video is no longer playing');
-        go_offline();
-      });
-
-      checkStreamHealth();
-
-      timer = setInterval(function(){
-        checkStreamHealth(timer);
-      },10000, online);
-
-    </script>
+</script>

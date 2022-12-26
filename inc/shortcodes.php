@@ -37,17 +37,7 @@ function cfstream_player_shortcode( $atts = array(), $content = '' ) {
   // This is psuedo for featured image on event page
   //$image = wp_get_attachment_image_url();
 
-  if(!empty($atts['channel'])){
-    global $wpdb;
-    $user_id = $wpdb->get_var("SELECT `user_id` FROM `{$wpdb->prefix}usermeta` WHERE `meta_key` = '_channel_id' AND `meta_value` = '{$atts['channel']}'");
-    if( $user_id ){
-      $channel_name = get_user_meta($user_id, '_channel_name', true);
-      $user_meta = get_user_meta($user_id, 'cfs_stream_config', true);
-      if( $channel_name ){
-        $channel_id = $atts['channel'];
-      }
-    }
-  }
+
   ob_start();
   include dirname(__DIR__).'/partial/player.php';
   return ob_get_clean();

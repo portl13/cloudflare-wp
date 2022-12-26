@@ -52,6 +52,7 @@ function cloudflare_stream_wp_options_page(){
   $options = get_option( 'cloudflare_stream_wp_options' );
 
   $user_meta = get_user_meta(get_current_user_id(), 'cfs_stream_config', true);
+
   $channel_banner = get_user_meta(get_current_user_id(), '_channel_banner', true);
 
   ob_start(); include dirname(__DIR__) . '/partial/admin.php'; $template = ob_get_clean();
