@@ -169,6 +169,7 @@ function wporg_save_postdata( $post_id ) {
 }
 
 add_action( 'wp_ajax_cloudflare_check_stream_health', 'cloudflare_check_stream_health_callback' );
+add_action( 'wp_ajax_nopriv_cloudflare_check_stream_health', 'cloudflare_check_stream_health_callback' );
 function cloudflare_check_stream_health_callback() {
   
     $cloudflare_stream_wp_options = get_option('cloudflare_stream_wp_options');
